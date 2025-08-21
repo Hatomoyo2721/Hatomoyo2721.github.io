@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Thanh Sơn - Cybersecurity</title>
+    <meta name="description"
+        content="Portfolio của Thanh Sơn - Sinh viên An Ninh Mạng HUFLIT. Chuyên sâu về Malware Analysis, Network Defense, Incident Response, và Cloud Security." />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <canvas id="matrix" aria-hidden="true"></canvas>
+
+    <nav class="main-nav" role="navigation" aria-label="Main Navigation">
+        <div class="container nav-inner">
+            <a class="brand" href="#home">TS<span class="dot">.</span></a>
+            <div class="nav-links" role="menubar">
+                <a href="#home" data-link role="menuitem">Home</a>
+                <a href="#about" data-link role="menuitem">About</a>
+                <a href="#skills" data-link role="menuitem">Skills</a>
+                <a href="#projects" data-link role="menuitem">Projects</a>
+                <a href="#experience" data-link role="menuitem">Experience</a>
+                <a href="#contact" data-link role="menuitem">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <header id="home" class="hero-section" role="banner">
+        <div class="container hero">
+            <div class="avatar-wrap">
+                <img src="" alt="">
+            </div>
+            <h1 class="title"><span id="typing" aria-label="Thanh Sơn - Cybersecurity"></span></h1>
+            <p class="subtitle">Sinh viên An Ninh Mạng tại HUFLIT, tập trung vào Phân tích mã độc, Bảo mật mạng và Bảo
+                mật Cloud.</p>
+            <div class="hero-cta">
+                <a class="btn" href="#projects"><i class="fa-solid fa-shield-halved"></i> Xem dự án</a>
+                <a class="btn ghost" href="https://github.com/Hatomoyo2721" target="_blank" rel="noopener"><i
+                        class="fa-brands fa-github"></i> GitHub</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="about" class="section about">
+        <div class="container about-card reveal">
+            <h2>Về bản thân</h2>
+            <p>
+                Mình là <strong>Thanh Sơn</strong>, sinh viên năm cuối ngành <strong>An Ninh Mạng tại HUFLIT</strong>.
+                Với niềm đam mê khám phá và giải quyết các thách thức bảo mật, mình tập trung nghiên cứu sâu vào các
+                lĩnh vực <em>phân tích mã độc (malware analysis)</em>, <em>phòng thủ mạng (network defense)</em>,
+                <em>phản ứng sự cố (incident response)</em> và <em>bảo mật đám mây (cloud security)</em>.
+            </p>
+            <p>
+                Mình thường xuyên cập nhật kiến thức qua việc theo dõi các lỗ hổng (CVEs), tham gia các cuộc thi CTF và
+                rèn luyện kỹ năng trên các nền tảng như RootMe, TryHackMe để nâng cao kinh nghiệm thực chiến.
+            </p>
+            <div class="about-links">
+                <a href="https://github.com/Hatomoyo2721" target="_blank" rel="noopener" class="chip"><i
+                        class="fa-brands fa-github"></i> GitHub</a>
+                <a href="https://www.notion.so/Gray-Hat-649260ce4f27416cbd14982446d4cbae" target="_blank" rel="noopener"
+                    class="chip"><i class="fa-solid fa-rocket"></i> Notion</a>
+                <a href="https://linktr.ee/ltson" target="_blank" rel="noopener" class="chip"><i
+                        class="fa-solid fa-link"></i> Linktree</a>
+                <span class="chip gpa-chip"><i class="fa-solid fa-graduation-cap"></i> GPA: 3.36/4.0</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="section">
+        <div class="container reveal">
+            <h2>Kỹ năng chuyên môn</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4><i class="fas fa-shield-alt"></i> Bảo mật &amp; Phòng thủ</h4>
+                    <ul>
+                        <li><strong>Network Security:</strong> IDS/IPS (Suricata), Firewall (pfSense), VLAN, Phân tích
+                            gói tin (Wireshark).</li>
+                        <li><strong>SIEM:</strong> Triển khai và tinh chỉnh Wazuh, xây dựng rule phát hiện, giám sát
+                            log.</li>
+                        <li><strong>Endpoint Security:</strong> Hardening hệ thống, Squid Proxy, Windows GPO.</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h4><i class="fas fa-bug"></i> Phân tích mã độc &amp; RE</h4>
+                    <ul>
+                        <li><strong>Malware Analysis:</strong> Phân tích tĩnh &amp; động, trích xuất IOCs, phân tích
+                            hành vi.</li>
+                        <li><strong>Reverse Engineering:</strong> Sử dụng Binary Ninja, Ghidra để dịch ngược và phân
+                            tích mã.</li>
+                        <li><strong>Forensics:</strong> Điều tra bộ nhớ và ổ đĩa, giám sát hệ thống bằng Sysinternals.
+                        </li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h4><i class="fas fa-cloud"></i> Cloud &amp; Container Security</h4>
+                    <ul>
+                        <li><strong>Kubernetes:</strong> Hardening, NetworkPolicy, RBAC, Ingress, Velero backup, MinIO.
+                        </li>
+                        <li><strong>Containerization:</strong> Bảo mật Docker image, quản lý container an toàn.</li>
+                        <li><strong>Cloud Platforms:</strong> Kiến thức cơ bản về AWS, Azure security principles.</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h4><i class="fas fa-code"></i> Lập trình &amp; Tự động hóa</h4>
+                    <ul>
+                        <li><strong>Ngôn ngữ:</strong> Python (Scripting, Automation), Java (Networking), Bash.</li>
+                        <li><strong>Cryptography:</strong> Hiểu và áp dụng AES, RSA, SHA cho mã hóa và chữ ký số.</li>
+                        <li><strong>Tooling:</strong> Xây dựng các công cụ nhỏ phục vụ cho việc phân tích và kiểm thử.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section">
+        <div class="container reveal">
+            <h2>Dự án nổi bật</h2>
+            <div class="timeline">
+
+                <div class="timeline-item timeline-left">
+                    <div class="timeline-content">
+                        <h3><i class="fa-solid fa-shield-virus"></i> Hệ thống Bảo mật Endpoint & Phòng thủ mạng LAN</h3>
+                        <p class="project-desc-short">
+                            Xây dựng mô hình mạng LAN doanh nghiệp an toàn, kết hợp giải pháp bảo mật đa lớp để giám
+                            sát, phát hiện và ngăn chặn các mối đe dọa.
+                        </p>
+                        <ul>
+                            <li><strong>Thiết kế & phân vùng mạng (VLANs)</strong> cho các phòng ban, cô lập luồng truy
+                                cập.</li>
+                            <li><strong>Triển khai Firewall pfSense</strong> với các bộ quy tắc (rules) chặt chẽ.</li>
+                            <li><strong>Tích hợp Suricata (IDS/IPS)</strong> để giám sát và viết rule tùy chỉnh phát
+                                hiện các hành vi tấn công.</li>
+                            <li><strong>Cài đặt Wazuh (SIEM)</strong> để giám sát an ninh và thu thập log chi tiết từ
+                                các thiết bị người dùng cuối.</li>
+                        </ul>
+                        <div class="tools-title">Nền tảng &amp; Công nghệ:</div>
+                        <ul class="timeline-tools">
+                            <li class="tool-tag">pfSense</li>
+                            <li class="tool-tag">Suricata</li>
+                            <li class="tool-tag">Wazuh</li>
+                            <li class="tool-tag">Squid Proxy</li>
+                            <li class="tool-tag">GPO</li>
+                            <li class="tool-tag">VLANs</li>
+                            <li class="tool-tag">GNS3</li>
+                            <li class="tool-tag">VMWare</li>
+                            <li class="tool-tag">Kali Linux</li>
+                        </ul>
+                        <div class="timeline-links">
+                            <a href="https://www.youtube.com/playlist?list=PLiXwXacd4F0jnEXRkYTEiBFzYq5PVF4Fq"
+                                target="_blank" rel="noopener"><i class="fa-brands fa-youtube"></i> Xem Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item timeline-right">
+                    <div class="timeline-content">
+                        <h3><i class="fa-solid fa-cubes"></i> Triển khai Ứng dụng Web trên Kubernetes</h3>
+                        <p class="project-desc-short">
+                            Triển khai một hệ thống website WordPress hoàn chỉnh trên cụm Kubernetes, áp dụng các giải
+                            pháp bảo mật, lưu trữ bền vững và sao lưu/phục hồi.
+                        </p>
+                        <ul>
+                            <li><strong>Xây dựng cụm Kubernetes</strong> hoàn chỉnh gồm 1 Master Node và 2 Worker Nodes.
+                            </li>
+                            <li><strong>Triển khai WordPress & MariaDB</strong> với lưu trữ bền vững qua
+                                PersistentVolumes (PV/PVC).</li>
+                            <li><strong>Bảo mật hệ thống</strong> bằng Kubernetes Secrets, Ingress Controller và cấu
+                                hình HTTPS.</li>
+                            <li><strong>Cài đặt giải pháp Backup & Recovery</strong> toàn diện bằng Velero và MinIO,
+                                thực hiện thành công kịch bản phục hồi dữ liệu.</li>
+                        </ul>
+                        <div class="tools-title">Nền tảng &amp; Công nghệ:</div>
+                        <ul class="timeline-tools">
+                            <li class="tool-tag">Kubernetes</li>
+                            <li class="tool-tag">Docker</li>
+                            <li class="tool-tag">Minikube</li>
+                            <li class="tool-tag">Velero</li>
+                            <li class="tool-tag">MinIO</li>
+                            <li class="tool-tag">Calico</li>
+                            <li class="tool-tag">Nginx Ingress</li>
+                            <li class="tool-tag">Helm</li>
+                            <li class="tool-tag">YAML</li>
+                        </ul>
+                        <div class="timeline-links">
+                            <a href="https://www.youtube.com/playlist?list=PLiXwXacd4F0hBnw_tvyUIYj0_aKOGad-Y"
+                                target="_blank" rel="noopener"><i class="fa-brands fa-youtube"></i> Xem Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item timeline-left">
+                    <div class="timeline-content">
+                        <h3><i class="fa-brands fa-bluetooth-b"></i> Lab Nghiên cứu Bảo mật Bluetooth</h3>
+                        <p class="project-desc-short">
+                            Phân tích và thực hành tấn công các lỗ hổng bảo mật Bluetooth trên môi trường thực tế, mô
+                            phỏng các kỹ thuật chiếm quyền điều khiển và gửi tin nhắn độc hại.
+                        </p>
+                        <ul>
+                            <li><strong>Thiết lập môi trường tấn công</strong> trên Kali Linux với các công cụ chuyên
+                                dụng.</li>
+                            <li><strong>Thực hiện thành công tấn công Bluejacking</strong>, gửi danh thiếp ảo (.vcf) đến
+                                thiết bị mục tiêu bằng `obexftp` và `obexfs`.</li>
+                            <li><strong>Thực hiện tấn công BlueDucky</strong>, tạo payload tùy chỉnh để giả lập bàn
+                                phím, chiếm quyền điều khiển và mở trình duyệt web của nạn nhân.</li>
+                        </ul>
+                        <div class="tools-title">Nền tảng &amp; Công nghệ:</div>
+                        <ul class="timeline-tools">
+                            <li class="tool-tag">Kali Linux</li>
+                            <li class="tool-tag">Python</li>
+                            <li class="tool-tag">bluetoothctl</li>
+                            <li class="tool-tag">hcitool</li>
+                            <li class="tool-tag">obexftp</li>
+                            <li class="tool-tag">obexfs</li>
+                            <li class="tool-tag">BlueDucky</li>
+                        </ul>
+                        <div class="timeline-links">
+                            <a href="https://www.youtube.com/playlist?list=PLiXwXacd4F0iGXIi0WWGjdMP94D94OwZz"
+                                target="_blank" rel="noopener"><i class="fa-brands fa-youtube"></i> Xem Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item timeline-right">
+                    <div class="timeline-content">
+                        <h3><i class="fa-solid fa-lock"></i> Kênh Giao tiếp Mã hóa với Java Netty</h3>
+                        <p class="project-desc-short">
+                            Xây dựng một hệ thống Client-Server an toàn, áp dụng kỹ thuật mã hóa lai (AES & RSA) và chữ
+                            ký số để xác thực người dùng và bảo vệ dữ liệu.
+                        </p>
+                        <ul>
+                            <li><strong>Triển khai giao thức mã hóa lai</strong>: AES-CBC để mã hóa dữ liệu và RSA để
+                                trao đổi khóa an toàn.</li>
+                            <li><strong>Tích hợp chữ ký số SHA256withRSA</strong> để đảm bảo tính toàn vẹn và xác thực
+                                client.</li>
+                            <li><strong>Xây dựng server non-blocking hiệu năng cao</strong> bằng framework Netty.</li>
+                            <li><strong>Phát triển Client UI (JavaFX)</strong> và Dashboard giám sát hệ thống theo thời
+                                gian thực qua REST API (SparkJava).</li>
+                        </ul>
+                        <div class="tools-title">Nền tảng &amp; Công nghệ:</div>
+                        <ul class="timeline-tools">
+                            <li class="tool-tag">Java</li>
+                            <li class="tool-tag">Netty</li>
+                            <li class="tool-tag">JavaFX</li>
+                            <li class="tool-tag">SparkJava</li>
+                            <li class="tool-tag">SQLite</li>
+                            <li class="tool-tag">AES/RSA</li>
+                            <li class="tool-tag">SHA256withRSA</li>
+                        </ul>
+                        <div class="timeline-links">
+                            <a href="https://github.com/Hatomoyo2721" target="_blank" rel="noopener"><i
+                                    class="fa-brands fa-github"></i> Mã nguồn</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="section">
+        <div class="container reveal">
+            <h2>Kinh nghiệm thực tiễn</h2>
+            <ul class="exp-list">
+                <li><strong>Phân tích và Dịch ngược mã độc:</strong> Có kinh nghiệm sử dụng disassembler (Binary Ninja,
+                    Ghidra) để phân tích mã Assembly, chuyển đổi sang mã giả (pseudocode), nhận diện các hàm độc hại,
+                    trích xuất chuỗi và tạo quy tắc YARA để phát hiện mẫu.</li>
+                <li><strong>Phân tích động & Sandbox:</strong> Thực hành phân tích mã độc trong môi trường cô lập, ghi
+                    lại và phân tích các hoạt động của tiến trình, truy cập file, kết nối mạng và thay đổi registry để
+                    xây dựng biểu đồ hành vi chi tiết.</li>
+                <li><strong>Xây dựng hệ thống phòng thủ mạng:</strong> Triển khai và cấu hình tường lửa pfSense, phân
+                    đoạn mạng bằng VLAN để cô lập các vùng mạng. Tinh chỉnh quy tắc IDS/IPS trên Suricata để phát hiện
+                    các mẫu tấn công và giảm thiểu cảnh báo giả.</li>
+                <li><strong>Giám sát an ninh (SIEM):</strong> Tích hợp Wazuh agent trên các endpoint, xây dựng và tùy
+                    chỉnh các quy tắc phát hiện dựa trên log hệ thống, log ứng dụng. Tập trung vào việc tổng hợp và
+                    chuẩn hóa log để đưa ra cảnh báo chính xác.</li>
+                <li><strong>Bảo mật Cloud & Kubernetes:</strong> Áp dụng nguyên tắc đặc quyền tối thiểu
+                    (least-privilege) qua RBAC, thực thi chính sách mạng (NetworkPolicy) để kiểm soát luồng traffic. Cấu
+                    hình Ingress với TLS và triển khai chiến lược sao lưu/phục hồi dữ liệu.</li>
+            </ul>
+        </div>
+    </section>
+
+    <footer id="contact" class="footer">
+        <div class="container footer-content reveal">
+            <div class="footer-about">
+                <h3>Thanh Sơn</h3>
+                <p>Sẵn sàng kết nối và trao đổi về các cơ hội trong lĩnh vực An Ninh Mạng. Đừng ngần ngại liên hệ với
+                    tôi.</p>
+                <div class="social-links" aria-label="Social links">
+                    <a href="https://github.com/Hatomoyo2721" target="_blank" rel="noopener" aria-label="GitHub"><i
+                            class="fa-brands fa-github"></i></a>
+                    <a href="https://www.notion.so/Gray-Hat-649260ce4f27416cbd14982446d4cbae" target="_blank"
+                        rel="noopener" aria-label="Notion"><i class="fa-solid fa-rocket"></i></a>
+                    <a href="https://linktr.ee/ltson" target="_blank" rel="noopener" aria-label="Linktree"><i
+                            class="fa-solid fa-link"></i></a>
+                </div>
+            </div>
+            <div class="contact-details">
+                <h3>Thông tin liên hệ</h3>
+                <p><i class="fa-solid fa-envelope"></i> <a href="mailto:lts31sv16@gmail.com">lts31sv16@gmail.com</a></p>
+                <p><i class="fa-solid fa-phone"></i> (+84) 909 859 704</p>
+                <p><i class="fa-solid fa-location-dot"></i> TP. Hồ Chí Minh, Việt Nam</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Thanh Sơn — All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
