@@ -16,49 +16,6 @@
 })();
 
 /* -----------------------
-   matrix background
-   ----------------------- */
-(function matrix() {
-    const canvas = document.getElementById('matrix');
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    let w = canvas.width = window.innerWidth;
-    let h = canvas.height = window.innerHeight;
-    const fontSize = 14;
-    const columns = Math.floor(w / fontSize);
-    let drops = new Array(columns).fill(1);
-    const chars = "01#@$%&*{}[]<>/\\";
-
-    function resize() {
-        w = canvas.width = window.innerWidth;
-        h = canvas.height = window.innerHeight;
-        const cols = Math.floor(w / fontSize);
-        drops = new Array(cols).fill(1);
-    }
-    window.addEventListener('resize', resize);
-
-    function draw() {
-        ctx.fillStyle = "rgba(8,27,46,0.08)";
-        ctx.fillRect(0, 0, w, h);
-        ctx.fillStyle = "rgba(16,231,244,0.28)";
-        ctx.font = fontSize + "px monospace";
-        for (let i = 0; i < drops.length; i++) {
-            const text = chars.charAt(Math.floor(Math.random() * chars.length));
-            ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-            if (drops[i] * fontSize > h && Math.random() > 0.975) drops[i] = 0;
-            drops[i]++;
-        }
-    }
-    // Use requestAnimationFrame for smoother animation
-    let animationFrameId;
-    function animate() {
-        draw();
-        animationFrameId = requestAnimationFrame(animate);
-    }
-    animate();
-})();
-
-/* -----------------------
    smooth scroll & scrollspy & reveal
    ----------------------- */
 (function ui() {
@@ -129,4 +86,33 @@
             card.style.setProperty('--my', y + 'px');
         });
     });
+})();
+
+/* ===================== DARK / LIGHT MODE TOGGLE ===================== */
+(function themeToggle() {
+  const root = document.documentElement;
+  const btn = document.getElementById("theme-toggle");
+  const icon = btn.querySelector("i");
+
+  // Load saved mode
+  const saved = localStorage.getItem("theme");
+  if (saved) root.className = saved;
+  else root.classList.add("dark");
+
+  // Set correct icon
+  function updateIcon() {
+    if (root.classList.contains("dark")) {
+      icon.className = "fa-solid fa-moon";
+    } else {
+      icon.className = "fa-solid fa-sun";
+    }
+  }
+  updateIcon();
+
+  btn.addEventListener("click", () => {
+    root.classList.toggle("dark");
+    root.classList.toggle("light");
+    localStorage.setItem("theme", root.className);
+    updateIcon();
+  });
 })();

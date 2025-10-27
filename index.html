@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Thanh Sơn - Cybersecurity</title>
+    <title>Hatomoyo's Home</title>
     <meta name="description"
         content="Portfolio của Thanh Sơn - Sinh viên An Ninh Mạng HUFLIT. Chuyên sâu về Malware Analysis, Network Defense, Incident Response, và Cloud Security." />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
@@ -14,59 +14,59 @@
 </head>
 
 <body>
-    <canvas id="matrix" aria-hidden="true"></canvas>
 
-    <nav class="main-nav" role="navigation" aria-label="Main Navigation">
-        <div class="container nav-inner">
-            <a class="brand" href="#home">TS<span class="dot">.</span></a>
-            <div class="nav-links" role="menubar">
-                <a href="#home" data-link role="menuitem">Home</a>
-                <a href="#about" data-link role="menuitem">About</a>
-                <a href="#skills" data-link role="menuitem">Skills</a>
-                <a href="#projects" data-link role="menuitem">Projects</a>
-                <a href="#experience" data-link role="menuitem">Experience</a>
-                <a href="#contact" data-link role="menuitem">Contact</a>
+    <nav class="nav-bar">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo"></a>
+
+            <div class="nav-links">
+                <a href="#home" data-link>Home</a>
+                <a href="#about" data-link>About</a>
+                <a href="#skills" data-link>Skills</a>
+                <a href="#projects" data-link>Projects</a>
+                <a href="#experience" data-link>Experience</a>
+                <a href="#contact" data-link>Contact</a>
             </div>
+
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                <i class="fa-solid fa-moon"></i>
+            </button>
         </div>
     </nav>
 
-    <header id="home" class="hero-section" role="banner">
-        <div class="container hero">
-            <div class="avatar-wrap">
-                <img src="" alt="">
-            </div>
-            <h1 class="title"><span id="typing" aria-label="Thanh Sơn - Cybersecurity"></span></h1>
-            <p class="subtitle">Sinh viên An Ninh Mạng tại HUFLIT, tập trung vào Phân tích mã độc, Bảo mật mạng và Bảo
-                mật Cloud.</p>
-            <div class="hero-cta">
-                <a class="btn" href="#projects"><i class="fa-solid fa-shield-halved"></i> Xem dự án</a>
-                <a class="btn ghost" href="https://github.com/Hatomoyo2721" target="_blank" rel="noopener"><i
-                        class="fa-brands fa-github"></i> GitHub</a>
-            </div>
+    <header id="home" class="intro-section">
+        <div class="intro-container">
+            <h1 class="intro-name">Thanh Son's Home</h1>
+            <p class="intro-role">Cybersecurity Student & Researcher</p>
         </div>
     </header>
+
 
     <section id="about" class="section about">
         <div class="container about-card reveal">
             <h2>Về bản thân</h2>
             <p>
-                Mình là <strong>Thanh Sơn</strong>, sinh viên năm cuối ngành <strong>An Ninh Mạng tại HUFLIT</strong>.
-                Với niềm đam mê khám phá và giải quyết các thách thức bảo mật, mình tập trung nghiên cứu sâu vào các
-                lĩnh vực <em>phân tích mã độc (malware analysis)</em>, <em>phòng thủ mạng (network defense)</em>,
-                <em>phản ứng sự cố (incident response)</em> và <em>bảo mật đám mây (cloud security)</em>.
+                <strong>Thanh Sơn</strong> — sinh viên năm cuối ngành <strong>An Ninh Mạng tại HUFLIT</strong>.
+                Với niềm đam mê khám phá và giải quyết các thách thức bảo mật, tập trung nghiên cứu sâu vào các
+                lĩnh vực <strong><em>phân tích mã độc (malware analysis)</em></strong>, <strong><em>phòng thủ mạng
+                        (network defense)</em></strong>, <strong><em>phản ứng sự cố (incident response)</em></strong>
+                và <strong><em>bảo mật đám mây (cloud security)</em></strong>.
             </p>
             <p>
-                Mình thường xuyên cập nhật kiến thức qua việc theo dõi các lỗ hổng (CVEs), tham gia các cuộc thi CTF và
-                rèn luyện kỹ năng trên các nền tảng như RootMe, TryHackMe để nâng cao kinh nghiệm thực chiến.
+                Thường xuyên cập nhật kiến thức qua việc theo dõi các lỗ hổng (CVEs), tham gia các cuộc thi CTF và
+                rèn luyện kỹ năng trên các nền tảng như rootme, TryHackMe để nâng cao kinh nghiệm thực chiến.
             </p>
+            <p><strong>Kỹ năng tiếng Anh:</strong> Upper-Intermediate (B2) — đọc hiểu tài liệu kỹ thuật và viết báo cáo
+                chuyên ngành bằng tiếng Anh.</p>
             <div class="about-links">
                 <a href="https://github.com/Hatomoyo2721" target="_blank" rel="noopener" class="chip"><i
                         class="fa-brands fa-github"></i> GitHub</a>
                 <a href="https://www.notion.so/Gray-Hat-649260ce4f27416cbd14982446d4cbae" target="_blank" rel="noopener"
                     class="chip"><i class="fa-solid fa-rocket"></i> Notion</a>
-                <a href="https://linktr.ee/ltson" target="_blank" rel="noopener" class="chip"><i
-                        class="fa-solid fa-link"></i> Linktree</a>
-                <span class="chip gpa-chip"><i class="fa-solid fa-graduation-cap"></i> GPA: 3.36/4.0</span>
+                <a href="https://www.linkedin.com/in/sonthanh2721/" target="_blank" rel="noopener" class="chip"><i
+                        class="fa-solid fa-link"></i> LinkedIn</a>
+                <span class="chip gpa-chip"><i class="fa-solid fa-graduation-cap"></i> GPA: 3.4/4.0</span>
+                <span class="chip"><i class="fa-solid fa-certificate"></i> IELTS 6.5</span>
             </div>
         </div>
     </section>
@@ -153,7 +153,7 @@
                         </ul>
                         <div class="timeline-links">
                             <a href="https://www.youtube.com/playlist?list=PLiXwXacd4F0jnEXRkYTEiBFzYq5PVF4Fq"
-                                target="_blank" rel="noopener"><i class="fa-brands fa-youtube"></i> Xem Demo</a>
+                                target="_blank" rel="noopener"><i class="fa-brands fa-youtube"></i> Demo</a>
                         </div>
                     </div>
                 </div>
@@ -189,7 +189,7 @@
                         </ul>
                         <div class="timeline-links">
                             <a href="https://www.youtube.com/playlist?list=PLiXwXacd4F0hBnw_tvyUIYj0_aKOGad-Y"
-                                target="_blank" rel="noopener"><i class="fa-brands fa-youtube"></i> Xem Demo</a>
+                                target="_blank" rel="noopener"><i class="fa-brands fa-youtube"></i> Demo</a>
                         </div>
                     </div>
                 </div>
@@ -221,7 +221,7 @@
                         </ul>
                         <div class="timeline-links">
                             <a href="https://www.youtube.com/playlist?list=PLiXwXacd4F0iGXIi0WWGjdMP94D94OwZz"
-                                target="_blank" rel="noopener"><i class="fa-brands fa-youtube"></i> Xem Demo</a>
+                                target="_blank" rel="noopener"><i class="fa-brands fa-youtube"></i> Demo</a>
                         </div>
                     </div>
                 </div>
@@ -254,7 +254,7 @@
                         </ul>
                         <div class="timeline-links">
                             <a href="https://github.com/Hatomoyo2721" target="_blank" rel="noopener"><i
-                                    class="fa-brands fa-github"></i> Mã nguồn</a>
+                                    class="fa-brands fa-github"></i> Source</a>
                         </div>
                     </div>
                 </div>
@@ -287,29 +287,35 @@
     </section>
 
     <footer id="contact" class="footer">
-        <div class="container footer-content reveal">
-            <div class="footer-about">
-                <h3>Thanh Sơn</h3>
-                <p>Sẵn sàng kết nối và trao đổi về các cơ hội trong lĩnh vực An Ninh Mạng. Đừng ngần ngại liên hệ với
-                    tôi.</p>
-                <div class="social-links" aria-label="Social links">
-                    <a href="https://github.com/Hatomoyo2721" target="_blank" rel="noopener" aria-label="GitHub"><i
-                            class="fa-brands fa-github"></i></a>
-                    <a href="https://www.notion.so/Gray-Hat-649260ce4f27416cbd14982446d4cbae" target="_blank"
-                        rel="noopener" aria-label="Notion"><i class="fa-solid fa-rocket"></i></a>
-                    <a href="https://linktr.ee/ltson" target="_blank" rel="noopener" aria-label="Linktree"><i
-                            class="fa-solid fa-link"></i></a>
+
+        <div class="container">
+
+            <div class="footer-content reveal">
+                <div class="footer-about">
+                    <h3>Thanh Sơn</h3>
+                    <p>Sẵn sàng kết nối và trao đổi về các cơ hội trong lĩnh vực An Ninh Mạng.</p>
+                    <div class="social-links" aria-label="Social links">
+                        <a href="https://github.com/Hatomoyo2721" target="_blank" rel="noopener" aria-label="GitHub"><i
+                                class="fa-brands fa-github"></i></a>
+                        <a href="https://www.notion.so/Gray-Hat-649260ce4f27416cbd14982446d4cbae" target="_blank"
+                            rel="noopener" aria-label="Notion"><i class="fa-solid fa-rocket"></i></a>
+                        <a href="https://www.linkedin.com/in/sonthanh2721/" target="_blank" rel="noopener"
+                            aria-label="LinkedIn"><i class="fa-solid fa-link"></i></a>
+                    </div>
+                </div>
+                <div class="contact-details">
+                    <h3>Thông tin liên hệ</h3>
+                    <p><i class="fa-solid fa-envelope"></i> <a href="mailto:lts31sv16@gmail.com">lts31sv16@gmail.com</a>
+                    </p>
+                    <p><i class="fa-solid fa-phone"></i> (+84) 909 859 704</p>
+                    <p><i class="fa-solid fa-location-dot"></i> TP. Hồ Chí Minh, Việt Nam</p>
                 </div>
             </div>
-            <div class="contact-details">
-                <h3>Thông tin liên hệ</h3>
-                <p><i class="fa-solid fa-envelope"></i> <a href="mailto:lts31sv16@gmail.com">lts31sv16@gmail.com</a></p>
-                <p><i class="fa-solid fa-phone"></i> (+84) 909 859 704</p>
-                <p><i class="fa-solid fa-location-dot"></i> TP. Hồ Chí Minh, Việt Nam</p>
+
+            <div class="footer-bottom">
+                <p>Copyright © 2025 Hatomoyo</p>
             </div>
-        </div>
-        <div class="footer-bottom">
-            <p>© 2025 Thanh Sơn — All Rights Reserved.</p>
+
         </div>
     </footer>
 
