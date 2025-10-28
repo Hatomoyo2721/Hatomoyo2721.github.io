@@ -59,7 +59,7 @@
         });
     }
     window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll(); // Initial check
+    onScroll();
 
     // reveal on scroll (IntersectionObserver)
     const obs = new IntersectionObserver((entries) => {
@@ -88,7 +88,7 @@
     });
 })();
 
-/* ===================== DARK / LIGHT MODE TOGGLE ===================== */
+/* Dark/Light mode toggle */
 (function themeToggle() {
   const root = document.documentElement;
   const btn = document.getElementById("theme-toggle");

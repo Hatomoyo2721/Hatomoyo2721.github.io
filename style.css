@@ -1,4 +1,9 @@
 /* root theme colours */
+:root {
+  --navbar-height: 3.96rem;
+  --navbar-padding-y: 0.6rem;
+}
+
 :root.light {
   --bg: #ffffff;
   --bg-2: #f4f4f4;
@@ -8,6 +13,8 @@
   --accent: #000000;
   --radius: 12px;
   --shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  --nav-bg: var(--bg);
+  --nav-border: rgba(0, 0, 0, 0.1);
 }
 
 :root.dark {
@@ -19,6 +26,8 @@
   --accent: #E0E0E0;
   --radius: 12px;
   --shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  --nav-bg: rgba(24, 24, 24, 0.7);
+  --nav-border: rgba(255, 255, 255, 0.1);
 }
 
 * {
@@ -31,7 +40,7 @@ html {
 
 body {
   margin: 0;
-  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', 'Roboto', 'Helvetica', sans-serif;
+  font-family: 'JetBrains Mono', monospace;
   background: var(--bg);
   color: rgb(var(--text-rgb));
   font-size: 17px;
@@ -85,15 +94,16 @@ body {
 
 /* Navbar */
 .nav-bar {
+  --navbar-line-height: calc(var(--navbar-height) - var(--navbar-padding-y) * 2);
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   backdrop-filter: blur(8px);
-  background: rgba(24, 24, 24, 0.7);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--nav-bg);
+  border-bottom: 1px solid var(--nav-border);
   z-index: 1000;
-  transition: background 0.3s ease;
+  transition: background 0.3s, border-color 0.3s;
 }
 
 .nav-container {
@@ -106,10 +116,13 @@ body {
 }
 
 .nav-logo {
-  width: 28px;
-  height: 28px;
-  background-color: #FFFFFF;
-  border-radius: 4px;
+  width: 50px;
+  height: var(--navbar-line-height);
+  background-image: url('./images/avatar-navbar.jpg'); 
+  background-size: cover; 
+  background-position: center;
+  /* border-radius: 50%;  */
+  /* border-radius: 4px; */
 }
 
 .nav-links {
@@ -121,20 +134,44 @@ body {
 .nav-links a {
   font-weight: 500;
   font-size: 16px;
-  color: rgba(255, 255, 255, 0.9);
-  transition: opacity 0.2s ease;
+  color: var(--muted);
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: bolder;
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 4px;
+  transition: color 0.2s ease;
 }
 
-.nav-links a:hover,
+/* .nav-links a:hover,
 .nav-links a.active {
   opacity: 0.6;
-  text-decoration: underline;
+} */
+
+.nav-links a:hover {
+  color: rgb(var(--text-rgb)); 
+}
+
+.nav-links a.active {
+  color: rgb(var(--text-rgb));
+  font-weight: 600; 
+}
+
+.nav-links a.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: rgb(var(--text-rgb));
 }
 
 .theme-toggle {
-background: none;
+  background: none;
   border: none;
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--muted);
+  opacity: 0.9;
   font-size: 1.2rem;
   cursor: pointer;
   transition: transform 0.2s;
@@ -267,17 +304,17 @@ h2 {
 
 /* Project link Demo / Source */
 timeline-links {
-  margin-top: 24px; 
+  margin-top: 24px;
   display: flex;
   flex-wrap: wrap;
-  gap: 12px; 
+  gap: 12px;
 }
 
 .timeline-links a {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  
+
   text-decoration: none !important;
   font-size: 0.9rem;
   font-weight: 600;
@@ -316,7 +353,7 @@ timeline-links {
 /* Footer */
 .footer {
   background: var(--bg);
-  padding: 60px 0 20px;
+  padding: 100px 0 20px;
   border-top: 1px solid rgba(var(--text-rgb), 0.1);
 }
 
@@ -368,7 +405,7 @@ timeline-links {
 }
 
 .footer-bottom {
-  padding-top: 24px; 
+  padding-top: 24px;
   margin-top: 40px;
   border-top: 1px solid rgba(var(--text-rgb), 0.1);
   text-align: center;
