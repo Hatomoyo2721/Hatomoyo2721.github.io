@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hatomoyo's Home</title>
     <meta name="description"
-        content="Portfolio của Thanh Sơn - Sinh viên An Ninh Mạng HUFLIT. Chuyên sâu về Malware Analysis, Network Defense, Incident Response, và Cloud Security." />
+        content="Hatomoyo's Home" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
         integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -22,7 +22,7 @@
             <div class="nav-links-container">
 
                 <div class="nav-item dropdown">
-                    <a href="#home" data-link class="nav-link">
+                    <a href="#home" data-link class="nav-link active">
                         <i class="fa-solid fa-house"></i> Home
                     </a>
                     <div class="dropdown-menu">
@@ -34,14 +34,17 @@
                     </div>
                 </div>
 
-                <div class="nav-item">
-                    <a href="/" class="nav-link">
+                <div class="nav-item dropdown">
+                    <span class="nav-link">
                         <i class="fa-solid fa-screwdriver-wrench"></i> Tools
-                    </a>
+                    </span>
+                    <div class="dropdown-menu">
+                        <a href="maintenance.html#ip-check">IP Check</a>
+                    </div>
                 </div>
 
                 <div class="nav-item">
-                    <a href="/" class="nav-link">
+                    <a href="maintenance.html#misc" class="nav-link">
                         <i class="fa-solid fa-ellipsis-h"></i> Misc
                     </a>
                 </div>
@@ -323,7 +326,7 @@
                     detection rules based on system logs, application logs Focused on aggregating and normalizing logs
                     to
                     provide accurate alerts.</li>
-                <li><strong><i class="fa-solid fa-cloud-shield"></i> Cloud & Kubernetes Security:</strong> Applied
+                <li><strong><i class="fa-solid fa-cloud"></i> Cloud & Kubernetes Security:</strong> Applied
                     least-privilege principles through RBAC,
                     enforced
                     NetworkPolicy to control traffic flow. Configured Ingress with TLS and implemented data
@@ -360,7 +363,7 @@
             </div>
 
             <div class="footer-bottom">
-                <p>Copyright © 2025 Hatomoyo</p>
+                <p>Copyright &copy; 2025 Hatomoyo</p>
             </div>
 
         </div>

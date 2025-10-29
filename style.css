@@ -205,6 +205,7 @@ body {
 .dropdown-menu a:hover {
   background-color: var(--bg-2); 
   color: rgb(var(--text-rgb));
+  font-weight: 600;
 }
 
 .theme-toggle {
