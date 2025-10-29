@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hatomoyo's Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <nav class="nav-bar">
+        <div class="nav-container">
+            <div class="nav-logo"></div>
+
+            <div class="nav-links-container">
+
+                <div class="nav-item dropdown">
+                    <a href="/" data-link class="nav-link">
+                        <i class="fa-solid fa-house"></i> Home
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="/#about" data-link>About</a>
+                        <a href="/#skills" data-link>Skills</a>
+                        <a href="/#projects" data-link>Projects</a>
+                        <a href="/#experience" data-link>Experience</a>
+                        <a href="/#contact" data-link>Contact</a>
+                    </div>
+                </div>
+
+                <div class="nav-item dropdown">
+                    <span class="nav-link">
+                        <i class="fa-solid fa-screwdriver-wrench"></i> Tools
+                    </span>
+                    <div class="dropdown-menu">
+                        <a href="ip-check.html">IP Check</a>
+                    </div>
+                </div>
+
+                <div class="nav-item">
+                    <a href="misc.html" class="nav-link">
+                        <i class="fa-solid fa-ellipsis-h"></i> Misc
+                    </a>
+                </div>
+
+            </div>
+
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                <i class="fa-solid fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <main>
+        <section class="section"
+            style="min-height: calc(100vh - 80px - 100px); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+            <h2 style="font-size: 3em; margin-bottom: 20px;">Under Maintenance...</h2>
+            <p style="font-size: 1.2em; color: var(--muted);">Please check back soon...!</p>
+            <p style="margin-top: 30px;"><i class="fa-solid fa-tools fa-spin"
+                    style="font-size: 2em; color: var(--accent);"></i></p>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-bottom">
+            <p>Copyright &copy; 2025 Hatomoyo</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
