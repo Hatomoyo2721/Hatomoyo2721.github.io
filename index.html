@@ -17,15 +17,35 @@
 
     <nav class="nav-bar">
         <div class="nav-container">
-            <a href="/" class="nav-logo"></a>
+            <div class="nav-logo"></div>
 
-            <div class="nav-links">
-                <a href="#home" data-link>Home</a>
-                <a href="#about" data-link>About</a>
-                <a href="#skills" data-link>Skills</a>
-                <a href="#projects" data-link>Projects</a>
-                <a href="#experience" data-link>Experience</a>
-                <a href="#contact" data-link>Contact</a>
+            <div class="nav-links-container">
+
+                <div class="nav-item dropdown">
+                    <a href="#home" data-link class="nav-link">
+                        <i class="fa-solid fa-house"></i> Home
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="#about" data-link>About</a>
+                        <a href="#skills" data-link>Skills</a>
+                        <a href="#projects" data-link>Projects</a>
+                        <a href="#experience" data-link>Experience</a>
+                        <a href="#contact" data-link>Contact</a>
+                    </div>
+                </div>
+
+                <div class="nav-item">
+                    <a href="/" class="nav-link">
+                        <i class="fa-solid fa-screwdriver-wrench"></i> Tools
+                    </a>
+                </div>
+
+                <div class="nav-item">
+                    <a href="/" class="nav-link">
+                        <i class="fa-solid fa-ellipsis-h"></i> Misc
+                    </a>
+                </div>
+
             </div>
 
             <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
@@ -282,24 +302,29 @@
         <div class="container reveal">
             <h2>Practical Experience</h2>
             <ul class="exp-list">
-                <li><strong>Malware Analysis & Reverse Engineering:</strong> Experienced in using disassemblers (Binary
+                <li><strong><i class="fa-solid fa-bug-slash"></i> Malware Analysis & Reverse Engineering:</strong>
+                    Experienced in using disassemblers (Binary
                     Ninja,
                     Ghidra) to analyze Assembly code, convert it to pseudocode, identify malicious functions,
                     extract strings, and create YARA rules for pattern detection</li>
-                <li><strong>Dynamic Analysis & Sandbox:</strong> Practiced malware analysis in isolated environments,
+                <li><strong><i class="fa-solid fa-vial-virus"></i> Dynamic Analysis & Sandbox:</strong> Practiced
+                    malware analysis in isolated environments,
                     recording
                     and analyzing process activities, file access, network connections, and registry changes to
                     build detailed behavior profiles</li>
-                <li><strong>Network Defense System Development:</strong> Deployed and configured pfSense firewall,
+                <li><strong><i class="fa-solid fa-shield-halved"></i> Network Defense System Development:</strong>
+                    Deployed and configured pfSense firewall,
                     segmented
                     networks using VLANs to isolate network zones. Fine-tuned IDS/IPS rules on Suricata to detect
                     attack patterns and reduce false positives</li>
-                <li><strong>Security Monitoring (SIEM):</strong> Integrated Wazuh agent on endpoints, developed and
+                <li><strong><i class="fa-solid fa-magnifying-glass-chart"></i> Security Monitoring (SIEM):</strong>
+                    Integrated Wazuh agent on endpoints, developed and
                     customized
                     detection rules based on system logs, application logs Focused on aggregating and normalizing logs
                     to
                     provide accurate alerts.</li>
-                <li><strong>Cloud & Kubernetes Security:</strong> Applied least-privilege principles through RBAC,
+                <li><strong><i class="fa-solid fa-cloud-shield"></i> Cloud & Kubernetes Security:</strong> Applied
+                    least-privilege principles through RBAC,
                     enforced
                     NetworkPolicy to control traffic flow. Configured Ingress with TLS and implemented data
                     backup/recovery
@@ -320,7 +345,7 @@
                         <a href="https://github.com/Hatomoyo2721" target="_blank" rel="noopener" aria-label="GitHub"><i
                                 class="fa-brands fa-github"></i></a>
                         <a href="https://www.notion.so/Gray-Hat-649260ce4f27416cbd14982446d4cbae" target="_blank"
-                            rel="noopener" aria-label="Notion"><i class="fa-solid fa-rocket"></i></a>
+                            rel="noopener" aria-label="Notion"><i class="fa-solid fa-code"></i></a>
                         <a href="https://www.linkedin.com/in/sonthanh2721/" target="_blank" rel="noopener"
                             aria-label="LinkedIn"><i class="fa-solid fa-link"></i></a>
                     </div>

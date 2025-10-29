@@ -40,23 +40,33 @@
     // scrollspy
     function onScroll() {
         const scrollY = window.scrollY;
-        
+
         // Offset to activate link a bit before the section hits the top
         const offset = scrollY + window.innerHeight * 0.4;
-        
+
+        const homeLink = document.querySelector('a[href="#home"][data-link]');
+        let anyLinkActive = false;
+
         sections.forEach((sec, idx) => {
             const link = links[idx];
             if (!sec || !link) return;
-            
+
             const top = sec.offsetTop;
             const bottom = top + sec.offsetHeight;
-            
+
             if (offset >= top && offset < bottom) {
                 link.classList.add('active');
+                anyLinkActive = true;
             } else {
                 link.classList.remove('active');
             }
         });
+
+        if (anyLinkActive) {
+            if (homeLink) homeLink.classList.add('active');
+        } else {
+            if (homeLink) homeLink.classList.remove('active');
+        }
     }
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
@@ -90,29 +100,29 @@
 
 /* Dark/Light mode toggle */
 (function themeToggle() {
-  const root = document.documentElement;
-  const btn = document.getElementById("theme-toggle");
-  const icon = btn.querySelector("i");
+    const root = document.documentElement;
+    const btn = document.getElementById("theme-toggle");
+    const icon = btn.querySelector("i");
 
-  // Load saved mode
-  const saved = localStorage.getItem("theme");
-  if (saved) root.className = saved;
-  else root.classList.add("dark");
+    // Load saved mode
+    const saved = localStorage.getItem("theme");
+    if (saved) root.className = saved;
+    else root.classList.add("dark");
 
-  // Set correct icon
-  function updateIcon() {
-    if (root.classList.contains("dark")) {
-      icon.className = "fa-solid fa-moon";
-    } else {
-      icon.className = "fa-solid fa-sun";
+    // Set correct icon
+    function updateIcon() {
+        if (root.classList.contains("dark")) {
+            icon.className = "fa-solid fa-moon";
+        } else {
+            icon.className = "fa-solid fa-sun";
+        }
     }
-  }
-  updateIcon();
-
-  btn.addEventListener("click", () => {
-    root.classList.toggle("dark");
-    root.classList.toggle("light");
-    localStorage.setItem("theme", root.className);
     updateIcon();
-  });
+
+    btn.addEventListener("click", () => {
+        root.classList.toggle("dark");
+        root.classList.toggle("light");
+        localStorage.setItem("theme", root.className);
+        updateIcon();
+    });
 })();

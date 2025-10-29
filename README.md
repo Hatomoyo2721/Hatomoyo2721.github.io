@@ -9,7 +9,7 @@ This repository contains the source code for my personal website.
 ### Attribution
 
 * **Hero Image:** The background image is a screenshot from the game [Wuthering Waves](https://wutheringwaves.kurogames.com/).
-* **Source:** Found on [this Reddit post](https://www.reddit.com/media?url=https%3A%2F%2Fi.redd.it%2Flets-share-some-stunning-screenshots-from-wuthering-waves-v0-idbwancyzn6f1.jpg%3Fwidth%3D1920%26format%3Dpjpg%26auto%3Dwebp%26s%3D98340c6fd0a13daadcded2ac79a6976dbd6f9cb7).
+* **Source:** Found on this [Reddit post](https://www.reddit.com/media?url=https%3A%2F%2Fi.redd.it%2Flets-share-some-stunning-screenshots-from-wuthering-waves-v0-idbwancyzn6f1.jpg%3Fwidth%3D1920%26format%3Dpjpg%26auto%3Dwebp%26s%3D98340c6fd0a13daadcded2ac79a6976dbd6f9cb7).
 
 ### License & Usage
 
