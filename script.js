@@ -1,19 +1,3 @@
-/* Typing effect (accessible) */
-(function typing() {
-    const typingEl = document.getElementById('typing');
-    // Updated text for the typing effect
-    const text = "Thanh Sơn — Cybersecurity";
-    let k = 0;
-    if (!typingEl) return;
-    typingEl.textContent = '';
-    function step() {
-        typingEl.textContent = text.slice(0, k++);
-        if (k <= text.length) setTimeout(step, 80);
-    }
-    step();
-})();
-
-
 /* Smooth scroll & scrollspy & reveal on scroll */
 (function ui() {
     if (!document.getElementById('home')) return;
@@ -71,20 +55,6 @@
 })();
 
 
-/* Project card cursor glow (optional, can be removed if not desired) */
-(function cardGlow() {
-    document.querySelectorAll('.project').forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-            const r = card.getBoundingClientRect();
-            const x = e.clientX - r.left;
-            const y = e.clientY - r.top;
-            card.style.setProperty('--mx', x + 'px');
-            card.style.setProperty('--my', y + 'px');
-        });
-    });
-})();
-
-
 /* Dark/Light mode toggle */
 (function themeToggle() {
     const root = document.documentElement;
@@ -115,36 +85,6 @@
 })();
 
 
-/* Navbar Active State (Single-page) */
-(function activeNav() {
-    const path = window.location.pathname;
-    const hash = window.location.hash;
-    const currentFile = path.split('/').pop();
-
-    if (currentFile === '' || currentFile === 'index.html') {
-        return;
-    }
-
-    let currentHref = currentFile + hash;
-
-    if (!hash && currentFile === 'maintenance.html') {
-        currentHref = 'maintenance.html';
-    }
-
-    const activeLink = document.querySelector(`.nav-link[href$="${currentHref}"], .dropdown-menu a[href$="${currentHref}"]`);
-
-    if (activeLink) {
-        activeLink.classList.add('active');
-
-        const parentDropdown = activeLink.closest('.nav-item.dropdown');
-        if (parentDropdown) {
-            parentDropdown.querySelector('.nav-link').classList.add('active');
-        }
-    }
-
-})();
-
-
 /* Navbar Active State (Multi-page) */
 (function multiPageNav() {
     
@@ -158,7 +98,7 @@
         });
 
         if (currentFile === '' || currentFile === 'index.html' || !currentFile) {
-            const homeLink = document.querySelector('.nav-link[href^="#home"]');
+            const homeLink = document.querySelector('.nav-link[href="/"]');
             if (homeLink) {
                 homeLink.classList.add('active');
             }
