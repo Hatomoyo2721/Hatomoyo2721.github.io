@@ -14,6 +14,28 @@
     document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 })();
 
+/* Mobile Nav Toggle */
+(function mobileNav() {
+    const navToggleBtn = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links-container');
+
+    if (navToggleBtn && navLinks) {
+        navToggleBtn.addEventListener('click', () => {
+            // Thêm/xóa class 'show' để hiện/ẩn menu
+            navLinks.classList.toggle('show');
+
+            // Đổi icon hamburger (3 gạch) thành icon "X" khi mở
+            const icon = navToggleBtn.querySelector('i');
+            if (navLinks.classList.contains('show')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            } else {
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            }
+        });
+    }
+})();
 
 /* Dark/Light mode toggle */
 (function themeToggle() {
@@ -47,7 +69,7 @@
 
 /* Navbar Active State (Multi-page) */
 (function multiPageNav() {
-    
+
     function updateActiveState() {
         const path = window.location.pathname;
         const hash = window.location.hash;
