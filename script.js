@@ -1,46 +1,6 @@
 /* Smooth scroll & scrollspy & reveal on scroll */
 (function ui() {
     if (!document.getElementById('home')) return;
-    const links = document.querySelectorAll('a[href^="#"][data-link]');
-    const sections = Array.from(links).map(a => {
-        const href = a.getAttribute('href');
-        return href ? document.querySelector(href) : null;
-    }).filter(Boolean); // Filter out nulls if a link's target doesn't exist
-
-    // smooth scroll
-    links.forEach(a => {
-        a.addEventListener('click', (e) => {
-            const id = a.getAttribute('href');
-            const el = document.querySelector(id);
-            if (el) {
-                e.preventDefault();
-                el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-        });
-    });
-
-    // scrollspy
-    function onScroll() {
-        const scrollY = window.scrollY;
-        // Offset to activate link a bit before the section hits the top
-        const offset = scrollY + window.innerHeight * 0.4;
-
-        sections.forEach((sec, idx) => {
-            const link = links[idx];
-            if (!sec || !link) return;
-
-            const top = sec.offsetTop;
-            const bottom = top + sec.offsetHeight;
-
-            if (offset >= top && offset < bottom) {
-                link.classList.add('active');
-            } else {
-                link.classList.remove('active');
-            }
-        });
-    }
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
 
     // reveal on scroll (IntersectionObserver)
     const obs = new IntersectionObserver((entries) => {
