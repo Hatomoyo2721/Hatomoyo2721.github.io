@@ -1,3 +1,8 @@
+/* Sanitize function to prevent XSS */
+function sanitize(str) {
+    return str.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
 /* Smooth scroll & scrollspy & reveal on scroll */
 (function ui() {
     if (!document.getElementById('home')) return;
@@ -117,18 +122,77 @@
         return;
     }
 
+    // --- GLOBAL ISP LOOKUP TABLE ---
+    // Note: Only popular ISPs will have their website displayed.
+    // The values are now plain domains (no https://)
+    const ispWebsiteMap = {
+        // Vietnam
+        'VIETTEL': 'viettel.com.vn',
+        'FPT': 'fpt.vn',
+        'VNPT': 'vnpt.com.vn',
+        'MOBIFONE': 'mobifone.vn',
+
+        // US
+        'COMCAST': 'xfinity.com',
+        'AT&T': 'att.com',
+        'VERIZON': 'verizon.com',
+        'SPECTRUM': 'spectrum.com', // (Charter)
+        'CHARTER': 'spectrum.com',
+        'T-MOBILE': 't-mobile.com',
+
+        // Europe
+        'VODAFONE': 'vodafone.com',
+        'ORANGE': 'orange.com',
+        'DEUTSCHE TELEKOM': 'telekom.de',
+        'BT': 'bt.com', // (British Telecom)
+        'TELEFONICA': 'telefonica.com',
+
+        // Asia
+        'NTT': 'global.ntt', // (Japan)
+        'KDDI': 'kddi.com', // (Japan)
+        'CHINA TELECOM': 'chinatelecom-h.com',
+        'KT': 'kt.com', // (South Korea)
+
+        // Australia
+        'TELSTRA': 'telstra.com.au',
+
+        // Cloud / Services
+        'GOOGLE': 'google.com',
+        'AMAZON': 'aws.amazon.com',
+        'MICROSOFT': 'azure.microsoft.com',
+        'CLOUDFLARE': 'cloudflare.com'
+    };
+
+    // This function finds the website domain from the ISP name
+    function findIspWebsite(ispName) {
+        if (!ispName) {
+            return null;
+        }
+        const upperIspName = ispName.toUpperCase();
+        for (const key in ispWebsiteMap) {
+            if (upperIspName.includes(key)) {
+                return ispWebsiteMap[key]; // Returns 'viettel.com.vn'
+            }
+        }
+        return null; // No match found
+    }
+
     async function getIpInfo() {
         try {
             // Use ipinfo.io as it provides IP, ISP, City, etc., all in one call
             const response = await fetch('https://ipinfo.io/json');
-            
+
             if (!response.ok) {
                 throw new Error(`Network response was not ok (${response.status})`);
             }
-            
+
             const data = await response.json();
 
-            // Create the HTML content to display
+            // Get the ISP name and find the website
+            const ispName = data.org || 'N/A';
+            const ispWebsite = findIspWebsite(ispName); // Uses the function defined above
+
+            // Create HTML content
             const htmlContent = `
                 <ul class="ip-details-list">
                     <li>
@@ -136,15 +200,27 @@
                         <span>${data.ip || 'N/A'}</span>
                     </li>
                     <li>
-                        <strong><i class="fa-solid fa-server"></i> ISP (Provider):</strong> 
-                        <span>${data.org || 'N/A'}</span>
+                        <strong><i class="fa-solid fa-server"></i> ISP:</strong> 
+                        <span>${ispName}</span>
                     </li>
+
+                    ${ispWebsite ? `
+                    <li>
+                        <strong><i class="fa-solid fa-link"></i> ISP Website:</strong> 
+                        
+                        <span>${ispWebsite}</span>
+                        
+                        <span class="tooltip">
+                            <i class="fa-solid fa-circle-info"></i>
+                            <span class="tooltip-text">Only popular ISPs will have their website displayed.</span>
+                        </span>
+                    </li>` : ''} 
                     <li>
                         <strong><i class="fa-solid fa-city"></i> City:</strong> 
                         <span>${data.city || 'N/A'}</span>
                     </li>
                     <li>
-                        <strong><i class="fa-solid fa-map"></i> Region:</strong> 
+                        <strong><i class="fa-solid fa-map"></i> Region:</strong>
                         <span>${data.region || 'N/A'}</span>
                     </li>
                     <li>
@@ -152,7 +228,7 @@
                         <span>${data.country || 'N/A'}</span>
                     </li>
                     <li>
-                        <strong><i class="fa-solid fa-compass"></i> Location (Latitude/Longitude):</strong> 
+                        <strong><i class="fa-solid fa-compass"></i> Location (Lat/Lon):</strong> 
                         <span>${data.loc || 'N/A'}</span>
                     </li>
                     <li>
@@ -162,11 +238,11 @@
                 </ul>
             `;
 
-            // Inject the HTML into the card
+            // Inject HTML into the card
             ipCard.innerHTML = htmlContent;
 
         } catch (error) {
-            // Handle any errors during the fetch
+            // Handle errors
             console.error('Error fetching IP info:', error);
             ipCard.innerHTML = '<p style="text-align: center; color: #FF6B6B;">Sorry, could not fetch IP information. Please try again later.</p>';
         }
@@ -174,5 +250,68 @@
 
     // Call the function immediately on page load
     getIpInfo();
+
+})();
+
+
+/* Website latency check */
+(function pingCheck() {
+    const card = document.getElementById('ping-check-card');
+    if (!card) return;
+
+    const urlInput = document.getElementById('ping-url');
+    const pingButton = document.getElementById('ping-button');
+    const resultsDiv = document.getElementById('ping-results');
+
+    async function checkLatency() {
+        let url = urlInput.value.trim();
+        if (!url) {
+            resultsDiv.innerHTML = `<span class="error">Please enter a domain.</span>`;
+            return;
+        }
+
+        // Sanitize input
+        const safeUrl = sanitize(urlInput.value.trim());
+
+        // Add https:// if user just types 'google.com'
+        if (!url.startsWith('http://') && !url.startsWith('https://')) {
+            url = 'https://' + url;
+        }
+
+        // Disable button, show loading
+        pingButton.disabled = true;
+        pingButton.textContent = 'Checking...';
+
+        // Sanitize for display
+        resultsDiv.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Pinging ${safeUrl}...`;
+
+        try {
+            const startTime = performance.now();
+            await fetch(url, { mode: 'no-cors', cache: 'no-cache' });
+            const endTime = performance.now();
+            const latency = Math.round(endTime - startTime);
+
+            // safeUrl is already sanitized
+            resultsDiv.innerHTML = `Response from <strong>${safeUrl}</strong>: <span class="success">${latency} ms</span>`;
+
+        } catch (error) {
+            console.error('Ping error:', error);
+            resultsDiv.innerHTML = `<span class="error">Could not reach ${safeUrl} or website doesn't exist.</span>`;
+        } finally {
+            // Re-enable button
+            pingButton.disabled = false;
+            pingButton.textContent = 'Check';
+        }
+    }
+
+    // Run check on button click
+    pingButton.addEventListener('click', checkLatency);
+
+    // Also allow pressing 'Enter' in the input box
+    urlInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            checkLatency();
+        }
+    });
 
 })();

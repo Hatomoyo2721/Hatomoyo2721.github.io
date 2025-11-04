@@ -29,7 +29,7 @@
                         <i class="fa-solid fa-screwdriver-wrench"></i> Tools
                     </span>
                     <div class="dropdown-menu">
-                        <a href="ip-check.html">IP Check</a>
+                        <a href="ip-check.html"><i class="fa-solid fa-globe"></i> IP Check</a>
                     </div>
                 </div>
 
@@ -54,7 +54,7 @@
     <main>
         <section class="section" style="padding-top: 60px;">
             <div class="container">
-                <h2><i class="fa-solid fa-network-wired"></i> Your IP Information</h2>
+                <h2><i class="fa-solid fa-globe"></i> IP information</h2>
 
                 <div class="about-card" id="ip-info-card">
 
@@ -62,6 +62,19 @@
                         <i class="fa-solid fa-spinner fa-spin"></i> Loading your information...
                     </p>
 
+                </div>
+            </div>
+
+            <h2 style="margin-top: 50px;"><i class="fa-solid fa-tachometer-alt"></i> Website Latency Check</h2>
+            <div class="about-card" id="ping-check-card">
+                <p style="color: var(--muted); text-align: center; margin-bottom: 20px; font-size: 0.95em;">
+                    Enter a domain to measure the HTTP request latency (ms).
+                </p>
+                <div class="ping-input-group">
+                    <input type="text" id="ping-url" placeholder="e.g., google.com" value="google.com">
+                    <button id="ping-button">Check</button>
+                </div>
+                <div id="ping-results" class="ping-results">
                 </div>
             </div>
         </section>

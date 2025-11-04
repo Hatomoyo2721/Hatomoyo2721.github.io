@@ -643,3 +643,97 @@ h2 {
   opacity: 0.8;
   font-size: 1.1rem;
 }
+
+/* Styles for Ping Checker */
+.ping-input-group {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.ping-input-group input[type="text"] {
+  flex-grow: 1;
+  padding: 12px 16px;
+  border-radius: var(--radius);
+  border: 1px solid var(--nav-border);
+  background: var(--bg-2);
+  color: rgb(var(--text-rgb));
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1rem;
+}
+
+.ping-input-group button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: var(--radius);
+  background: var(--accent);
+  color: var(--bg);
+  font-weight: 600;
+  font-family: 'JetBrains Mono', monospace;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.ping-input-group button:hover {
+  opacity: 0.8;
+}
+
+.ping-input-group button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.ping-results {
+  font-size: 1.1em;
+  text-align: center;
+  font-weight: 600;
+  color: var(--muted);
+  min-height: 24px;
+}
+
+.ping-results .success {
+  color: #4CAF50;
+}
+
+.ping-results .error {
+  color: #F44336;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  margin-left: auto;
+}
+
+.tooltip .fa-circle-info {
+  font-size: 0.9em;
+  color: var(--muted);
+  cursor: help;
+}
+
+.tooltip .tooltip-text {
+  visibility: hidden;
+  width: 240px;
+  background-color: var(--bg-2);
+  color: rgb(var(--text-rgb));
+  text-align: center;
+  border-radius: var(--radius);
+  padding: 8px 12px;
+  position: absolute;
+  z-index: 1;
+  bottom: 130%;
+  left: 50%;
+  margin-left: -120px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--nav-border);
+  font-size: 0.9em;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.tooltip:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
