@@ -52,12 +52,18 @@
     </nav>
 
     <main>
-        <section class="section"
-            style="min-height: calc(100vh - 80px - 100px); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
-            <h2 class="maintenance-title">Under Maintenance...</h2>
-            <p style="font-size: 1.2em; color: var(--muted);">Please check back soon...!</p>
-            <p style="margin-top: 30px;"><i class="fa-solid fa-tools fa-spin"
-                    style="font-size: 2em; color: var(--accent);"></i></p>
+        <section class="section" style="padding-top: 60px;">
+            <div class="container">
+                <h2><i class="fa-solid fa-network-wired"></i> Your IP Information</h2>
+
+                <div class="about-card" id="ip-info-card">
+
+                    <p style="text-align: center; font-size: 1.1em; color: var(--muted);">
+                        <i class="fa-solid fa-spinner fa-spin"></i> Loading your information...
+                    </p>
+
+                </div>
+            </div>
         </section>
     </main>
 

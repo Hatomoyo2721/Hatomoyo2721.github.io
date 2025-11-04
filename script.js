@@ -14,6 +14,7 @@
     document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 })();
 
+
 /* Mobile Nav Toggle */
 (function mobileNav() {
     const navToggleBtn = document.querySelector('.nav-toggle');
@@ -104,5 +105,74 @@
 
     document.addEventListener('DOMContentLoaded', updateActiveState);
     window.addEventListener('hashchange', updateActiveState);
+
+})();
+
+
+/* Ip check tool*/
+(function ipCheck() {
+    const ipCard = document.getElementById('ip-info-card');
+
+    if (!ipCard) {
+        return;
+    }
+
+    async function getIpInfo() {
+        try {
+            // Use ipinfo.io as it provides IP, ISP, City, etc., all in one call
+            const response = await fetch('https://ipinfo.io/json');
+            
+            if (!response.ok) {
+                throw new Error(`Network response was not ok (${response.status})`);
+            }
+            
+            const data = await response.json();
+
+            // Create the HTML content to display
+            const htmlContent = `
+                <ul class="ip-details-list">
+                    <li>
+                        <strong><i class="fa-solid fa-location-dot"></i> IP Address:</strong> 
+                        <span>${data.ip || 'N/A'}</span>
+                    </li>
+                    <li>
+                        <strong><i class="fa-solid fa-server"></i> ISP (Provider):</strong> 
+                        <span>${data.org || 'N/A'}</span>
+                    </li>
+                    <li>
+                        <strong><i class="fa-solid fa-city"></i> City:</strong> 
+                        <span>${data.city || 'N/A'}</span>
+                    </li>
+                    <li>
+                        <strong><i class="fa-solid fa-map"></i> Region:</strong> 
+                        <span>${data.region || 'N/A'}</span>
+                    </li>
+                    <li>
+                        <strong><i class="fa-solid fa-globe"></i> Country:</strong> 
+                        <span>${data.country || 'N/A'}</span>
+                    </li>
+                    <li>
+                        <strong><i class="fa-solid fa-compass"></i> Location (Latitude/Longitude):</strong> 
+                        <span>${data.loc || 'N/A'}</span>
+                    </li>
+                    <li>
+                        <strong><i class="fa-solid fa-truck-fast"></i> Hostname:</strong> 
+                        <span>${data.hostname || 'N/A'}</span>
+                    </li>
+                </ul>
+            `;
+
+            // Inject the HTML into the card
+            ipCard.innerHTML = htmlContent;
+
+        } catch (error) {
+            // Handle any errors during the fetch
+            console.error('Error fetching IP info:', error);
+            ipCard.innerHTML = '<p style="text-align: center; color: #FF6B6B;">Sorry, could not fetch IP information. Please try again later.</p>';
+        }
+    }
+
+    // Call the function immediately on page load
+    getIpInfo();
 
 })();

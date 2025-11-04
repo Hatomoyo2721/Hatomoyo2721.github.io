@@ -600,3 +600,46 @@ h2 {
     line-height: 1.3;
   }
 }
+
+
+/* IP details section */
+.ip-details-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 1.1em;
+}
+
+.ip-details-list li {
+  padding: 14px 10px;
+  border-bottom: 1px solid var(--nav-border);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.ip-details-list li:last-child {
+  border-bottom: none;
+}
+
+.ip-details-list li strong {
+  color: rgb(var(--text-rgb));
+  min-width: 180px;
+  font-weight: 600;
+}
+
+.ip-details-list li span {
+  color: var(--muted);
+  font-weight: 500;
+  word-break: break-all; 
+}
+
+.ip-details-list li i {
+  width: 24px;
+  text-align: center;
+  margin-right: 10px;
+  color: var(--accent);
+  opacity: 0.8;
+  font-size: 1.1rem;
+}
